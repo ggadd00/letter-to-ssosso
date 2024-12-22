@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> 소소에게 보내는 편지</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(to bottom, #f8b195, #f67280);
+            color: #fff;
+            text-align: center;
+        }
+        .container {
+            max-width: 600px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+        .message {
+            font-size: 1.5em;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+        .signature {
+            font-size: 1.2em;
+            font-style: italic;
+        }
+        .button-container {
+            margin-top: 20px;
+        }
+        .button {
+            padding: 10px 20px;
+            font-size: 1em;
+            color: #f67280;
+            background: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .button:hover {
+            background: #f8b195;
+            color: #fff;
+        }
+        .hidden {
+            display: none;
+        }
+        #passwordInput {
+            padding: 10px;
+            font-size: 1em;
+            border-radius: 5px;
+            border: none;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="message">
+            비밀번호 4자리를 입력하세요! 🎁
+        </div>
+        <input type="password" id="passwordInput" placeholder="비밀번호 입력 (생일)" />
+        <div class="button-container">
+            <button class="button" id="revealButton">확인</button>
+        </div>
+        <div id="letter" class="message hidden">
+            소소야 생일축하해 🎉 가은이야. 
+            또 한 해가 지나고 소소의 생일이 다가왔구나 올해 정말 수고 많았어 
+            멋진 대학원생으로 살았던 소소의 2024년 마무리를 잘 했으면 좋겠다. 
+            2025년에는 함께 더 많고 더 좋은 기억들을 쌓아가면 좋겠어
+            나와 함께해줘 ^~^ 같이 재미있게 놀자 
+            알게된지 10년이 되는 날이 다가오는데 
+            그동안 좋은 친구가 되어줘서 고마워
+            주변인들에게 항상 친절하고 친구들을 잘 챙겨주고
+            공감해주는 소소를 만나서 정말 행운이야 
+            항상 보고싶은 마음 알지 ? 집도 가까운데 카공하거나 밥친구가 필요하면
+            연락줘 동네마실가자 ㅎㅎ 
+            세상 살다가 힘들거나 지치는 하루가 온다면 주저말고 말해줘 
+            든든한 친구가 되어줄게 ~! 
+            세상에서 가장 멋진 친구에게 이 편지를 보낸다. 
+            앞으로도 좋은 일만 가득하길 바라. ❤️
+        </div>
+        <div class="signature hidden" id="signature">
+            - 가은이가
+        </div>
+    </div>
+
+    <script>
+        const revealButton = document.getElementById('revealButton');
+        const passwordInput = document.getElementById('passwordInput');
+        const letter = document.getElementById('letter');
+        const signature = document.getElementById('signature');
+
+        const correctPassword = '1202'; // 비밀번호 설정 (생일)
+
+        revealButton.addEventListener('click', () => {
+            const enteredPassword = passwordInput.value;
+            if (enteredPassword === correctPassword) {
+                letter.classList.remove('hidden');
+                signature.classList.remove('hidden');
+                passwordInput.classList.add('hidden');
+                revealButton.classList.add('hidden');
+            } else {
+                alert('비밀번호가 틀렸습니다. 다시 시도해주세요!');
+            }
+        });
+    </script>
+</body>
+</html>
